@@ -3,6 +3,8 @@ import StatsBox from "./components/StatsBox";
 import DownloadBox from "./components/DownoadBox";
 import FileFolder from "./components/FileFolder";
 
+import { humanBytes } from "./utils/Functions";
+
 import { BiAddToQueue } from "react-icons/bi";
 
 const App = () => {
@@ -64,12 +66,16 @@ const App = () => {
             <StatsBox title="CPU Usage" desc={stats.cpuUsage} type="cpu" />
             <StatsBox
               title="Memory Usage"
-              desc={`${stats.memUsage} / ${stats.memTotal}`}
+              desc={`${humanBytes(stats.memUsage)} / ${humanBytes(
+                stats.memTotal
+              )} (${((stats.memUsage / stats.memTotal) * 100).toFixed(2)}%)`}
               type="memory"
             />
             <StatsBox
-              title="Disk "
-              desc={`${stats.diskUsage} / ${stats.diskTotal}`}
+              title="Disk Usage"
+              desc={`${humanBytes(stats.diskUsage)} / ${humanBytes(
+                stats.diskTotal
+              )} (${((stats.diskUsage / stats.diskTotal) * 100).toFixed(2)}%)`}
               type="disk"
             />
           </div>
@@ -105,7 +111,9 @@ const App = () => {
                 <p className="text-gray-100">No files</p>
               </div>
             ) : (
-              files.map((file) => <FileFolder {...file} key={Math.random().toString()} />)
+              files.map((file) => (
+                <FileFolder {...file} key={Math.random().toString()} />
+              ))
             )}
           </div>
         </div>
