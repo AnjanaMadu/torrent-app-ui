@@ -1,0 +1,36 @@
+@media (max-width: 650px) {
+	/* Download Box */
+	.main {
+		flex-wrap: wrap;
+	}
+
+	.progressBar {
+		background-color: #161f33;
+		min-width: 80%;
+		/* outline: 1px solid red; */
+		padding: 5px 10px 5px 10px;
+		border-radius: 10px;
+	}
+	.icon {
+		min-width: 18%;
+		background-color: #161f33;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 8px 10px 8px 10px;
+		border-radius: 10px;
+	}
+	.icon button {
+		font-size: 25px;
+	}
+
+	.name {
+		width: 100%;
+		margin-bottom: 15px;
+		/* background-color: rgb(51, 51, 128);
+        padding: 5px;
+        border-radius: 10px; */
+	}
+
+	/* FileFolder */
+}
